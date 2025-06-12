@@ -1,11 +1,26 @@
-const CartSummary = ({totalPrice,itemCount}) => {
-    const shipping = totalPrice > 100 ? 0 : 10;
-    const tax = totalPrice * 0.10;
-    const orderTotal = totalPrice + tax + shipping;
+import authApiClint from "../../services/authapiClient";
 
+const CartSummary = ({ totalPrice, itemCount, cartId }) => {
+  const shipping = totalPrice > 100 ? 0 : 10;
+  const tax = totalPrice * 0.1;
+  const orderTotal = totalPrice + tax + shipping;
 
-    return (
-        <div className="card bg-base-100 shadow-xl">
+  const createOrder = async () => {
+    try {
+      const order = await authApiClint.post(`/orders/`, {
+        cart_id: cartId,
+      });
+      if (order.status === 201) {
+        localStorage.removeItem("cartId");
+        alert("Your Order Is Created Go To Order Page");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className="card bg-base-100 shadow-xl">
       <div className="card-body">
         <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
         <div className="space-y-2">
@@ -30,8 +45,8 @@ const CartSummary = ({totalPrice,itemCount}) => {
         </div>
         <div className="card-actions justify-end mt-4">
           <button
-            // disabled={itemCount === 0}
-            // onClick={createOrder}
+            disabled={itemCount === 0}
+            onClick={createOrder}
             className="btn btn-primary w-full"
           >
             Proceed to Checkout
@@ -39,7 +54,7 @@ const CartSummary = ({totalPrice,itemCount}) => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default CartSummary;

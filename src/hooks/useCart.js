@@ -76,6 +76,7 @@ const useCart = () => {
   );
   return {
     cart,
+    cartId,
     createOrGetCart,
     AddCartItems,
     UpdateCartItem,

@@ -4,7 +4,7 @@ import About from "../pages/About";
 import Product from "../pages/Products/Product";
 import MainLayout from "../layouts/MainLayout";
 import Shop from "../pages/Shop";
-import Login from "../pages/login";
+import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "../components/PrivateRoute";
 import ActivateAccount from "../components/AccountActivation";
@@ -13,6 +13,7 @@ import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
 import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
+import Order from "../pages/Order";
 
 const AppRoutes = () => {
   return (
@@ -41,6 +42,7 @@ const AppRoutes = () => {
         <Route index element={<Dashboard></Dashboard>} />
         <Route path="profile" element={<Profile></Profile>} />
         <Route path="cart" element={<Cart></Cart>} />
+        <Route path="orders" element = {<Order />} />
       </Route>
     </Routes>
   );
