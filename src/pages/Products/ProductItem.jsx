@@ -25,7 +25,7 @@ const ProductItem = ({ product }) => {
           </h2>
           <p className="text-xl font-bold text-primary">${product.price}</p>
           <div className="card-actions mt-2 space-x-2">
-            <button className="btn btn-outline btn-sm">Buy Now</button>
+            {/* <button className="btn btn-outline btn-sm">Buy Now</button> */}
             <button
               onClick={handleShowDetails}
               className="btn btn-outline btn-sm btn-primary"

@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import bgimg from '../../assets/images/banner-image-bg-2.jpg'
 import image from '../../assets/images/banner-image3.png'
 import DiscountTimer from './DiscountTimer';
@@ -25,9 +26,9 @@ const DiscountSection = () => {
 
           {/* CountDown Section */}
           <DiscountTimer></DiscountTimer>
-          <button className="btn btn-secondary rounded-2xl text-xl mt-5">
+          <Link to={'products'} className="btn btn-secondary rounded-2xl text-xl mt-5">
             Shop Collection
-          </button>
+          </Link>
         </div>
       </div>
     </section>

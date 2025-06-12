@@ -29,9 +29,23 @@ const OrderCard = ({ order, handleOrderCancel }) => {
         orderId: order.id,
         numItems: order.items.length,
       });
-      console.log(response)
+      console.log(response);
     } catch (error) {
       console.log(error);
+    }
+  };
+  const getStatusClass = (status) => {
+    switch (status) {
+      case "Not Paid":
+        return "badge-warning";
+      case "Shipped":
+        return "badge-info";
+      case "Delivered":
+        return "badge-success";
+      case "Canceled":
+        return "badge-error";
+      default:
+        return "badge-ghost";
     }
   };
 
@@ -46,7 +60,7 @@ const OrderCard = ({ order, handleOrderCancel }) => {
         <div className="flex gap-2">
           {user.is_staff ? (
             <select
-              className="px-3 py-1.5 text-white text-sm font-medium bg-blue-400 rounded-full"
+              className={`badge ${getStatusClass(order.status)}`}
               value={status}
               onChange={handleOrderStatus}
             >
@@ -57,9 +71,7 @@ const OrderCard = ({ order, handleOrderCancel }) => {
             </select>
           ) : (
             <span
-              className={`px-3 py-1 rounded-full text-white text-sm font-medium ${
-                order.status === "Not Paid" ? "bg-red-500" : "bg-green-500"
-              }`}
+              className={`px-3 py-3 rounded-full text-white text-sm font-medium `}
             >
               {order.status}
             </span>

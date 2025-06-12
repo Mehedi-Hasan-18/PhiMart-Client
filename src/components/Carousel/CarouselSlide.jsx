@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const CarouselSlide = ({ title, subtitle, image, bgimg }) => {
   return (
     <section
@@ -8,9 +10,9 @@ const CarouselSlide = ({ title, subtitle, image, bgimg }) => {
         <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">{title}</h1>
           <p className="py-6 text-2xl">{subtitle}</p>
-          <button className="btn btn-secondary rounded-2xl text-xl">
+          <Link to={'products'} className="btn btn-secondary rounded-2xl text-xl">
             Shop Now
-          </button>
+          </Link>
         </div>
         <div className="w-full md:w-1/2 flex justify-center">
           <img className="w-3/4 sm:w-2/3 md:max-w-md drop-shadow-lg" src={image} />

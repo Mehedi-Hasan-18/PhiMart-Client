@@ -14,7 +14,7 @@ const Category = () => {
     <section className="py-16 w-11/12 mx-auto">
       <div className="flex justify-between mb-8">
         <h2 className="text-3xl font-bold">Browse Category</h2>
-        <NavLink className="btn btn-secondary text-xl" to={"#"}>
+        <NavLink className="btn btn-secondary text-xl" to={"categories"}>
           View All
         </NavLink>
       </div>

@@ -1,4 +1,5 @@
 import { FaAngleRight } from "react-icons/fa6";
+import { useNavigate } from "react-router";
 
 const CategoryItems = ({ index, category }) => {
   const gradients = [
@@ -7,6 +8,12 @@ const CategoryItems = ({ index, category }) => {
     "from-purple-100 to-pink-100",
     "from-pink-100 to-blue-100",
   ];
+
+  const navigate = useNavigate();
+
+  const handleExploreCategory = (categoryId) => {
+    navigate(`/categories/${categoryId}/products`);
+  };
 
   return (
     <div
@@ -27,7 +34,7 @@ const CategoryItems = ({ index, category }) => {
         <p className="text-gray-600 text-sm mb-4 flex-grow">
           {category.description}
         </p>
-        <button className="text-pink-500 font-bold hover:text-pink-600 transition-colors flex items-center">
+        <button onClick={() =>handleExploreCategory(category.id)} className="text-pink-500 font-bold hover:text-pink-600 transition-colors flex items-center">
           Explore
           <FaAngleRight />
         </button>

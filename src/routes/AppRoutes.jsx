@@ -14,6 +14,9 @@ import Profile from "../pages/Profile";
 import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
 import Order from "../pages/Order";
+import AllCategories from "../components/categories/AllCategories";
+import ProductsByCategory from "../components/categories/ProductByCategory";
+// import CategoryItems from "../components/categories/CategoryItem";
 
 const AppRoutes = () => {
   return (
@@ -25,6 +28,8 @@ const AppRoutes = () => {
         <Route path="products" element={<Shop />} />
         <Route path="login" element={<Login></Login>} />
         <Route path="register" element={<Register></Register>} />
+        <Route path="categories" element={<AllCategories></AllCategories>} />
+        <Route path="/categories/:id/products" element={<ProductsByCategory />} />
         <Route
           path="activate/:uid/:token"
           element={<ActivateAccount></ActivateAccount>}

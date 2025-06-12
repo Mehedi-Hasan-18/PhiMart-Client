@@ -62,11 +62,13 @@ const Navber = () => {
               Home
             </Link>
           </li>
-          <li>
-            <Link className="font-semibold text-xl" to={"/dashboard"}>
-              Dashboard
-            </Link>
-          </li>
+          {user && (
+            <li>
+              <Link className="font-semibold text-xl" to={"/dashboard"}>
+                Dashboard
+              </Link>
+            </li>
+          )}
           <li>
             <Link className="font-semibold text-xl" to={"/products"}>
               Product

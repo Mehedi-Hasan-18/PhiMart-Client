@@ -27,7 +27,7 @@ const Product = () => {
     <section className="mx-auto py-16 bg-gray-50">
       <div className="flex justify-between w-11/12 mx-auto">
         <h2 className="text-3xl font-bold">Trending Books</h2>
-        <NavLink className="btn btn-secondary text-xl" to={"#"}>
+        <NavLink className="btn btn-secondary text-xl" to={"products"}>
           View All
         </NavLink>
       </div>
