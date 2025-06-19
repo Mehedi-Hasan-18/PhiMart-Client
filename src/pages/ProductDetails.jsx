@@ -6,6 +6,7 @@ import { Suspense, useEffect, useState } from "react";
 // import ReviewSection from "../components/Reviews/ReviewSection";
 import apiClint from "../services/api-clint";
 import AddToCartButton from "../components/ProductDetails/AddToCartButton";
+import ReviewSection from "../components/Review/ReviewSection";
 // import defaultImage from '../assets/image-not-found-scaled.png'
 
 const ProductDetail = () => {
@@ -17,7 +18,6 @@ const ProductDetail = () => {
     setLoading(true);
     apiClint.get(`/products/${id}/`).then((res) => {
       setProduct(res.data);
-      console.log(res.data);
       setLoading(false);
     });
   }, [id]);
@@ -91,7 +91,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      {/* <ReviewSection /> */}
+      <ReviewSection />
     </div>
   );
 };

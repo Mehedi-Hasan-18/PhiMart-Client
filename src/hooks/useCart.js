@@ -36,7 +36,7 @@ const useCart = () => {
         });
         return response.data;
       } catch (error) {
-        console.log(error);
+        console.log("This is from add to error section",error);
       }
     },
     [cartId]

@@ -16,6 +16,7 @@ import Cart from "../pages/Cart";
 import Order from "../pages/Order";
 import AllCategories from "../components/categories/AllCategories";
 import ProductsByCategory from "../components/categories/ProductByCategory";
+import AddProduct from "../pages/AddProduct";
 // import CategoryItems from "../components/categories/CategoryItem";
 
 const AppRoutes = () => {
@@ -48,6 +49,7 @@ const AppRoutes = () => {
         <Route path="profile" element={<Profile></Profile>} />
         <Route path="cart" element={<Cart></Cart>} />
         <Route path="orders" element = {<Order />} />
+        <Route path="product/add" element = {<AddProduct />} />
       </Route>
     </Routes>
   );

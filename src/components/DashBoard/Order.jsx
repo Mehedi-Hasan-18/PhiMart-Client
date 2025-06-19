@@ -6,6 +6,7 @@ import { format, parseISO } from "date-fns";
 const Order = () => {
   const { user } = useAuthContext();
   const [orders, setOrder] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getStatusClass = (status) => {
     switch (status) {
@@ -24,15 +25,26 @@ const Order = () => {
 
   useEffect(() => {
     const fetchOrder = async () => {
+      setLoading(true);
       try {
         const response = await authApiClint.get("/orders/");
         setOrder(response.data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchOrder();
-  });
+  },[]);
+
+  // Show loading state
+  if (loading)
+    return <div className="text-center py-10"><span className="loading loading-spinner loading-xl"></span></div>;
+
+  // Show message if no orders
+  if (!loading && orders.length === 0)
+    return <div className="text-center py-10">No orders found.</div>;
 
   return (
     <div className="mt-6 card bg-base-100 shadow-sm">
